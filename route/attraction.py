@@ -100,11 +100,6 @@ def api_searchRoute(attractionId):
         }
         return erroRouteData
     else:
-        # 分割圖片網址並組合字串
-        picLinkRoute = routeItem[9].split('https://')
-        firstPicLinkRoute = 'https://' + picLinkRoute[1]
-
-        attractionsRoute = []
         dataRouteJson = {
             "id": routeItem[0],
             "name": routeItem[1],
@@ -115,7 +110,6 @@ def api_searchRoute(attractionId):
             "mrt": routeItem[6],
             "latitude": routeItem[7],
             "longitude": routeItem[8],
-            "images": [firstPicLinkRoute]
+            "images": [f"https://{img}" for img in routeItem[9].split('https://')[1:]]
         }
-        attractionsRoute.append(dataRouteJson)
-        return jsonify({"data": attractionsRoute})
+        return jsonify({"data": dataRouteJson})
