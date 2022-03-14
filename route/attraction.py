@@ -52,7 +52,7 @@ def api_searchQueryString():
 
     # 取得關鍵字資料
     cursor.execute(
-        "SELECT * FROM `attractions` WHERE `stitle` LIKE '%"+keyword+"%'")
+        "SELECT * FROM `attractions` WHERE `stitle` LIKE '%"+keyword+"%' ORDER BY `_id` LIMIT %s ,12", (getPage,))
     keywordItems = cursor.fetchall()
 
     if keyword != None:
