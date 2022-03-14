@@ -79,7 +79,7 @@ def api_searchQueryString():
                     "images": [f"https://{keywordItemImg}" for keywordItemImg in keywordItem[9].split('https://')[1:]]
                 }
                 attractionsKeyword.append(dataKeywordJson)
-            return jsonify({"nextPage": None, "data": attractionsKeyword})
+            return jsonify({"nextPage": int(page)+1, "data": attractionsKeyword})
 
 
 # 供前端 使用的 API 路由 - [查詢旅遊景點資料]
@@ -100,6 +100,10 @@ def api_searchRoute(attractionId):
         }
         return erroRouteData
     else:
+        # 分割圖片網址並組合字串
+        picLinkRoute = routeItem[9].split('https://')
+        firstPicLinkRoute = 'https://' + picLinkRoute[1]
+
         attractionsRoute = []
         dataRouteJson = {
             "id": routeItem[0],
@@ -111,7 +115,7 @@ def api_searchRoute(attractionId):
             "mrt": routeItem[6],
             "latitude": routeItem[7],
             "longitude": routeItem[8],
-            "images": [f"https://{img}" for img in routeItem[9].split('https://')[1:]]
+            "images": [firstPicLinkRoute]
         }
         attractionsRoute.append(dataRouteJson)
         return jsonify({"data": attractionsRoute})
