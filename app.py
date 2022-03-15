@@ -9,7 +9,8 @@ app.register_blueprint(attraction, url_prefx="")
 app.config['JSON_SORT_KEYS'] = False
 app.config["JSON_AS_ASCII"] = False
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-
+# connector.pooling Key
+app.secret_key = "mysecretkey"
 
 # Pages
 
@@ -34,4 +35,4 @@ def thankyou():
     return render_template("thankyou.html")
 
 
-app.run(host="0.0.0.0", port=3000)
+app.run(host="0.0.0.0", port=3000, debug=True)
