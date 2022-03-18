@@ -218,7 +218,7 @@
 }
 
 /*-------------------------*/
-/* $Image Box 
+/* $Img Box 
 ---------------------------*/
 /* imgbox */
 .imgbox {
@@ -406,7 +406,10 @@
   cursor: pointer;
   transition: 0.5s;
   vertical-align: middle;
-  margin: 0px 12px 0px 6px;
+  margin: 0px 4px 0px 5px;
+}
+.salepage__form input[type="radio"]:last-child {
+  margin-left: 12px;
 }
 .salepage__form input[type="radio"]:checked {
   background-color: #448899;
@@ -479,6 +482,7 @@
 /*-------------------------*/
 /* $Booking 
 ---------------------------*/
+/* booking */
 .booking {
   padding-top: 55px;
   padding-bottom: 55px;
@@ -543,7 +547,6 @@
     flex: 1 1 calc(70% - 30px);
   }
 }
-
 .booking__content-title {
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   font-weight: 700;
@@ -563,7 +566,7 @@
   color: #666666;
   padding-bottom: 20px;
 }
-.booking__content-place:last-child {
+.booking__content-place {
   padding-bottom: 5px;
 }
 .booking__content-date span,
@@ -600,7 +603,6 @@
   padding-bottom: 45px;
   border-bottom: 1px solid #e8e8e8;
 }
-
 .booking__form .booking__form-title {
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   font-weight: 700;
@@ -613,7 +615,7 @@
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   font-weight: 700;
   font-size: 16px;
-  line-height: 14px;
+  line-height: 24px;
   color: #666666;
   padding-top: 5px;
 }
