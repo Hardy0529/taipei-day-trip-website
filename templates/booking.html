@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taipei Trip 台北一日遊</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/layout.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/component.css') }}"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Start header -->
+      <header class="header">
+        <div class="container">
+          <div class="navbar">
+            <div class="navbar__logo">
+              <a href="/">台北一日遊</a>
+            </div>
+            <div class="navbar__nav">
+              <ul class="nav__menu">
+                <li><a href="#" class="menu__item">預定行程</a></li>
+                <li><a href="#" class="menu__item">登入/註冊</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- End header -->
+
+      <!-- Start booking -->
+      <section class="booking">
+        <div class="booking__container">
+          <div class="booking__top-section">
+            <div class="booking__member">您好，Yakko，待預訂的行程如下：</div>
+            <div class="booking__info">
+              <div class="booking__image">
+                <div class="imgbox">
+                  <div class="imgbox__inner imgbox__inner-4-3">
+                    <div
+                      class="image"
+                      style="
+                        background-image: url('https://www.taiwan.net.tw/pic.ashx?qp=1/big_scenic_spots/pic_2898_4.jpg&sizetype=3');
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="booking__content">
+                <div class="booking__content-title">台北一日遊：平安鐘</div>
+                <div class="booking__content-date">
+                  日期：<span>2021-04-23</span>
+                </div>
+                <div class="booking__content-time">
+                  時間：<span>早上 9 點到下午 4 點</span>
+                </div>
+                <div class="booking__content-cost">
+                  費用：<span>新台幣 2000 元</span>
+                </div>
+                <div class="booking__content-place">
+                  地點：<span>臺北市 大安區忠孝東路4段</span>
+                </div>
+              </div>
+              <div class="booking__delete">
+                <a href="#" class="booking__Icon-delete">
+                  <i class="icon icon-delete"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <form class="booking__form">
+            <div class="booking__middle-section">
+              <div class="booking__form-title">訂購導覽行程</div>
+
+              <div class="booking__form-item">
+                <label for="booking__form-name"> 聯絡姓名：</label>
+                <input type="text" name="" id="booking__form-name" />
+              </div>
+              <div class="booking__form-item">
+                <label for="booking__form-email"> 連絡信箱：</label>
+                <input type="email" name="" id="booking__form-email" />
+              </div>
+              <div class="booking__form-item">
+                <label for="booking__form-phone"> 手機號碼：</label>
+                <input type="tel" name="" id="booking__form-phone" />
+              </div>
+              <div class="booking__form-content">
+                請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。
+              </div>
+            </div>
+            <div class="booking__bottom-section">
+              <div class="booking__form-title">信用卡付款資訊</div>
+
+              <div class="booking__form-item">
+                <label for="booking__form-card"> 卡片號碼：</label>
+                <input type="text" name="" id="booking__form-card" />
+              </div>
+              <div class="booking__form-item">
+                <label for="booking__form-effective-date"> 過期時間：</label>
+                <input type="text" name="" id="booking__form-effective-date" />
+              </div>
+              <div class="booking__form-item">
+                <label for="booking__form-verify"> 驗證密碼：</label>
+                <input type="tel" name="" id="booking__form-verify" />
+              </div>
+            </div>
+
+            <div class="booking__price">總價：新台幣 2000 元</div>
+            <div class="booking__btn">
+              <input class="btn" type="button" value="確認訂購並付款" />
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- End booking -->
+
+      <!-- Start Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p class="copyright">COPYRIGHT © 2021 台北一日遊</p>
+        </div>
+      </footer>
+      <!-- End Footer -->
+    </div>
+  </body>
+</html>

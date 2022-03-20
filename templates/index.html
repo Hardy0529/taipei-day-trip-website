@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taipei Trip 台北一日遊</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/layout.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/component.css') }}"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Start header -->
+      <header class="header">
+        <div class="container">
+          <div class="navbar">
+            <div class="navbar__logo">
+              <a href="/">台北一日遊</a>
+            </div>
+            <div class="navbar__nav">
+              <ul class="nav__menu">
+                <li><a href="#" class="menu__item">預定行程</a></li>
+                <li><a href="#" class="menu__item">登入/註冊</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- End header -->
+
+      <!-- Start jumbotron -->
+      <section class="jumbotron">
+        <div class="jumbotron__bg"></div>
+        <div class="container">
+          <h1 class="jumbotron__heading">輕鬆享受台北一日休閒</h1>
+          <p class="jumbotron__content">探索每個角落，體驗城市的深度旅遊行程</p>
+          <div class="attraction__form">
+            <label for="attraction"> </label>
+            <input
+              type="text"
+              name=""
+              id="keywordItem"
+              placeholder="輸入景點名稱查詢"
+            />
+
+            <button class="attraction__Btn" id="attractionSearchBtn">
+              <i class="icon icon-search"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- End jumbotron -->
+
+      <!-- Start Attractions Thumbnail -->
+      <section class="attractions__thumbnail">
+        <div class="container" id="attractions_container">
+          <div class="row" id="attractions_items"></div>
+        </div>
+      </section>
+      <!-- End Attractions Thumbnail -->
+
+      <!-- Start Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p class="copyright">COPYRIGHT © 2021 台北一日遊</p>
+        </div>
+      </footer>
+      <!-- End Footer -->
+      <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    </div>
+  </body>
+</html>
