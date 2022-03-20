@@ -22,6 +22,8 @@ db = mysql.connector.pooling.MySQLConnectionPool(
 def api_searchQueryString():
     # 取得要求字串
     page = request.args.get("page", 0)
+    nextpage = int(page)+1
+    next = (int(page)+1)*12
     getPage = (int(page)*12)
     keyword = request.args.get("keyword", None)
 
@@ -36,28 +38,38 @@ def api_searchQueryString():
                 FROM `attractions`
                 ORDER BY `_id`
                 LIMIT %s ,12
+            """, (next,))
+            dateNextpage = cursor.fetchall()
+            print(dateNextpage)
+            if dateNextpage == []:
+                nextpage = None
+
+            cursor.execute(
+                """
+                SELECT *
+                FROM `attractions`
+                ORDER BY `_id`
+                LIMIT %s ,12
             """, (getPage,))
             date = cursor.fetchall()
-            if date == []:
-                return jsonify({"data": True, "message": "查無此筆資料"}), 400
-            else:
-                # 將資料組成所需的格式
-                attractionsData = []
-                for pageItem in date:
-                    dataPageJson = {
-                        "id": pageItem["_id"],
-                        "name": pageItem["stitle"],
-                        "category": pageItem["CAT2"],
-                        "description": pageItem["xbody"],
-                        "address": pageItem["address"],
-                        "transport": pageItem["info"],
-                        "mrt": pageItem["MRT"],
-                        "latitude": pageItem["latitude"],
-                        "longitude": pageItem["longitude"],
-                        "images": [f"https://{routeItemImg}" for routeItemImg in pageItem["file"].split('https://')[1:]]
-                    }
-                    attractionsData.append(dataPageJson)
-                return jsonify({"nextPage": int(page)+1, "data": attractionsData}), 200
+
+            # 將資料組成所需的格式
+            attractionsData = []
+            for pageItem in date:
+                dataPageJson = {
+                    "id": pageItem["_id"],
+                    "name": pageItem["stitle"],
+                    "category": pageItem["CAT2"],
+                    "description": pageItem["xbody"],
+                    "address": pageItem["address"],
+                    "transport": pageItem["info"],
+                    "mrt": pageItem["MRT"],
+                    "latitude": pageItem["latitude"],
+                    "longitude": pageItem["longitude"],
+                    "images": [f"https://{routeItemImg}" for routeItemImg in pageItem["file"].split('https://')[1:]]
+                }
+                attractionsData.append(dataPageJson)
+            return jsonify({"nextPage": nextpage, "data": attractionsData}), 200
         except:
             return jsonify({"data": True, "message": "查無此筆資料"}), 500
         finally:
@@ -68,29 +80,32 @@ def api_searchQueryString():
             con = db.get_connection()
             cursor = con.cursor(dictionary=True)
             cursor.execute(" SELECT * FROM `attractions` WHERE `stitle`  LIKE '%" +
+                           keyword + "%' ORDER BY `_id` LIMIT %s ,12", (next,))
+            keywordItemsNext = cursor.fetchall()
+            if keywordItemsNext == []:
+                nextpage = None
+
+            cursor.execute(" SELECT * FROM `attractions` WHERE `stitle`  LIKE '%" +
                            keyword + "%' ORDER BY `_id` LIMIT %s ,12", (getPage,))
             keywordItems = cursor.fetchall()
-            print(keyword)
-            if keywordItems == []:
-                return jsonify({"data": True, "message": "查無此筆資料"}), 400
-            else:
-                # 將資料組成所需的格式
-                attractionsKeyword = []
-                for keywordItem in keywordItems:
-                    dataKeywordJson = {
-                        "id": keywordItem["_id"],
-                        "name": keywordItem["stitle"],
-                        "category": keywordItem["CAT2"],
-                        "description": keywordItem["xbody"],
-                        "address": keywordItem["address"],
-                        "transport": keywordItem["info"],
-                        "mrt": keywordItem["MRT"],
-                        "latitude": keywordItem["latitude"],
-                        "longitude": keywordItem["longitude"],
-                        "images": [f"https://{keywordItemImg}" for keywordItemImg in keywordItem["file"].split('https://')[1:]]
-                    }
-                    attractionsKeyword.append(dataKeywordJson)
-                return jsonify({"nextPage": int(page)+1, "data": attractionsKeyword}), 200
+
+            # 將資料組成所需的格式
+            attractionsKeyword = []
+            for keywordItem in keywordItems:
+                dataKeywordJson = {
+                    "id": keywordItem["_id"],
+                    "name": keywordItem["stitle"],
+                    "category": keywordItem["CAT2"],
+                    "description": keywordItem["xbody"],
+                    "address": keywordItem["address"],
+                    "transport": keywordItem["info"],
+                    "mrt": keywordItem["MRT"],
+                    "latitude": keywordItem["latitude"],
+                    "longitude": keywordItem["longitude"],
+                    "images": [f"https://{keywordItemImg}" for keywordItemImg in keywordItem["file"].split('https://')[1:]]
+                }
+                attractionsKeyword.append(dataKeywordJson)
+            return jsonify({"nextPage": nextpage, "data": attractionsKeyword}), 200
         except:
             return jsonify({"data": True, "message": "查無此筆資料"}), 500
         finally:

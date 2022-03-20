@@ -182,12 +182,22 @@
   border: 1px solid #757575;
 }
 .attraction__Btn {
+  border: 0px;
   padding: 0px 15px;
   line-height: 46px;
   background: #448899;
   border-radius: 0px 4px 4px 0px;
   vertical-align: middle;
   box-sizing: border-box;
+
+  /* interact */
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* jumbotron background */
@@ -459,25 +469,6 @@
   font-weight: 400;
   line-height: 24px;
 }
-/*-------------------------*/
-/* $Footer
----------------------------*/
-/* footer */
-.footer {
-  padding-top: 45px;
-  padding-bottom: 45px;
-  background-color: #757575;
-}
-
-/* copyright */
-.copyright {
-  text-align: center;
-  font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 14px;
-  color: #ffffff;
-}
 
 /*-------------------------*/
 /* $Booking 
@@ -641,6 +632,7 @@
   line-height: 34px;
   border: 1px solid #e8e8e8;
   padding: 0px 10px;
+  border-radius: 4px;
 }
 
 .booking__form input[type="text"]:focus,
@@ -663,4 +655,24 @@
   padding-top: 25px;
   text-align: right;
   padding-bottom: 5px;
+}
+
+/*-------------------------*/
+/* $Footer
+---------------------------*/
+/* footer */
+.footer {
+  padding-top: 45px;
+  padding-bottom: 45px;
+  background-color: #757575;
+}
+
+/* copyright */
+.copyright {
+  text-align: center;
+  font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 14px;
+  color: #ffffff;
 }
