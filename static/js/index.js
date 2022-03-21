@@ -87,10 +87,11 @@ function init() {
 
         // 開關
         toggle = true;
-        //頁面
+
         currentPage = result.nextPage;
 
         // 偵測滾動
+
         window.addEventListener("scroll", function () {
           // 螢幕可視窗格
           const scrollable = window.innerHeight;
@@ -99,11 +100,16 @@ function init() {
           const element = document.querySelector("#attractions_items");
           const elementHeight = element.getBoundingClientRect().bottom;
           if (toggleSHOW) {
-            if (result.nextPage != null) {
-              // 判斷滾動式距離是否高於元件高
+            // 判斷滾動式距離是否高於元件高
+
+            if (currentPage != null) {
               if (scrollable >= elementHeight && toggle) {
+                //頁面
+                console.log(currentPage);
                 toggle = false;
                 nextPage(currentPage);
+
+                console.log("執行");
               }
             }
           }
@@ -134,41 +140,47 @@ function init() {
           return response.json();
         })
         .then(function (result) {
-          if (sss) {
-            list.innerHTML = "";
-          }
-
-          let str = "";
-          console.log(result.nextPage == null);
-          console.log(result.data);
-          currentPageK = result.nextPage;
-          result.data.forEach(function (item) {
-            let content = `<div class="col-sm-2 col-md-2 col-lg-3 col-xl-4"><div class="thumbnail"><div class="imgbox"><div class="imgbox__inner imgbox__inner-5-3"><div class="image" style="background-image: url('${item.images[0]}')"></div></div></div><div class="thumbnail__info"><div class="thumbnail__title">${item.name}</div><div class="thumbnail__information"><div class="thumbnail__MRT">${item.mrt}</div><div class="thumbnail__category">${item.category}</div></div></div></div></div>`;
-            str += content;
-          });
-
-          list.insertAdjacentHTML("beforeEnd", str);
-
-          // 開關
-          toggleK = true;
-          window.addEventListener("scroll", function () {
-            // 螢幕可視窗格
-            const scrollablek = window.innerHeight;
-
-            // 頁面與元件高
-            const elementk = document.querySelector("#attractions_items");
-            const elementHeightk = elementk.getBoundingClientRect().bottom;
-
-            // 判斷滾動式距離是否高於元件高
-            if (result.nextPage != null) {
-              if (scrollablek >= elementHeightk && toggleK) {
-                sss = false;
-                toggleK = false;
-                console.log("執行");
-                nextKeywordPage(currentPageK);
-              }
+          if (result.data.length != 0) {
+            if (sss) {
+              list.innerHTML = "";
             }
-          });
+
+            // let str = "";
+            // console.log(result.nextPage == null);
+            // console.log(result.data);
+            currentPageK = result.nextPage;
+            result.data.forEach(function (item) {
+              showHtml(item);
+            });
+
+            // list.insertAdjacentHTML("beforeEnd", str);
+            console.log(currentPageK);
+            // 開關
+            toggleK = true;
+            window.addEventListener("scroll", function () {
+              // 螢幕可視窗格
+              const scrollablek = window.innerHeight;
+
+              // 頁面與元件高
+              const elementk = document.querySelector("#attractions_items");
+              const elementHeightk = elementk.getBoundingClientRect().bottom;
+
+              // 判斷滾動式距離是否高於元件高
+              if (result.nextPage != null) {
+                if (scrollablek >= elementHeightk && toggleK) {
+                  sss = false;
+                  toggleK = false;
+                  console.log("執行");
+                  if (currentPageK != null) {
+                    nextKeywordPage(currentPageK);
+                  }
+                }
+              }
+            });
+          }
+          if (result.data.length == 0) {
+            list.innerHTML = "未搜尋到任何結果";
+          }
         });
     }
     nextKeywordPage(currentPageK);
