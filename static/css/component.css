@@ -19,6 +19,8 @@
 ---------------------------*/
 .wrapper {
   background-color: #eff3f5;
+  overflow: hidden;
+  min-width: 355px;
 }
 
 /*-------------------------*/
@@ -95,6 +97,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: -10px;
 }
 .nav__menu li {
   padding: 10px 0px;
