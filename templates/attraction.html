@@ -39,25 +39,65 @@
       <!-- End header -->
 
       <!-- Start attractions -->
-      <section class="attractions">
+      <section class="attraction" id="attractionId">
         <div class="container">
           <div class="salepage__top-section">
             <div class="salepage__top-left">
-              <div class="imgbox">
-                <div class="imgbox__inner imgbox__inner-4-3">
-                  <div
-                    class="image"
-                    style="
-                      background-image: url('https://www.taiwan.net.tw/pic.ashx?qp=1/big_scenic_spots/pic_2898_4.jpg&sizetype=3');
-                    "
-                  ></div>
+              <!-- Start Carousel -->
+              <div class="carousel">
+                <div class="carousel__items">
+                  <!-- <div class="carousel__item">
+                    <div class="imgbox">
+                      <div class="imgbox__inner imgbox__inner-4-3">
+                        <div
+                          class="image"
+                          style="
+                            background-image: url('https://www.taiwan.net.tw/pic.ashx?qp=1/big_scenic_spots/pic_2898_4.jpg&sizetype=3');
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel__item">
+                    <div class="imgbox">
+                      <div class="imgbox__inner imgbox__inner-4-3">
+                        <div
+                          class="image"
+                          style="
+                            background-image: url('https://www.taiwan.net.tw/pic.ashx?qp=1/big_scenic_spots/pic_2898_4.jpg&sizetype=3');
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel__item">
+                    <div class="imgbox">
+                      <div class="imgbox__inner imgbox__inner-4-3">
+                        <div
+                          class="image"
+                          style="
+                            background-image: url('https://www.taiwan.net.tw/pic.ashx?qp=1/big_scenic_spots/pic_2898_4.jpg&sizetype=3');
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="carousel__nav">
+                  <div class="carousel__nav-prev"></div>
+                  <div class="carousel__nav-next"></div>
                 </div>
               </div>
+              <!-- End Carousel -->
             </div>
             <div class="salepage__top-right">
               <div class="salepage__info">
-                <div class="salepag__title">平安鐘</div>
-                <div class="salepag__tage">公共藝術 at 忠孝復興</div>
+                <div class="salepag__title" id="attractionTitle">
+                  <!-- 平安鐘 -->
+                </div>
+                <div class="salepag__tage" id="attractionTage">
+                  <!-- <span>公共藝術</span> at <span>忠孝復興</span> -->
+                </div>
               </div>
               <form class="salepage__form" action="">
                 <div class="salepage__form-title">訂購導覽行程</div>
@@ -70,22 +110,31 @@
                   <input type="date" name="" id="salepage__form-date" />
                 </div>
 
-                <div class="salepage__form-item">
-                  <label for="salepage__form-time"> 選擇時間：</label>
+                <div class="salepage__form-item salepage__form-radio-item">
+                  <label for="salepage__form-time-daytime"> 選擇時間：</label>
+
                   <input
                     type="radio"
                     name="time"
-                    id="salepage__form-time"
-                  />上半天
+                    id="salepage__form-time-daytime"
+                    value="2000"
+                  />
+                  <label for="salepage__form-time-daytime"> 上半天</label>
+
                   <input
                     type="radio"
                     name="time"
-                    id="salepage__form-time"
-                  />下半天
+                    id="salepage__form-time-night"
+                    value="2500"
+                  />
+                  <label for="salepage__form-time-night"> 下半天</label>
                 </div>
+
                 <div class="salepage__form-item">
                   <spqn class="salepage__form-price-label">導覽費用：</spqn>
-                  <spqn class="salepage__form-price">新台幣 2000 元</spqn>
+                  <spqn class="salepage__form-price" id="salepageFormPriceId"
+                    >新台幣 2000 元</spqn
+                  >
                 </div>
 
                 <div class="salepage__form-item">
@@ -95,21 +144,24 @@
             </div>
           </div>
           <div class="salepage__middle-section">
-            <div class="salepage__middle-description">
-              平安鐘祈求大家的平安，這是為了紀念921地震週年的設計，在喧鬧的廣場上每個小時鳴鐘，保佑平安，祈禱臺灣不會再發生這樣的天災。雙手合十加上108個黃色的琉璃乳丁，隨著緩緩流下的水，在底下的一個小噴泉噴出。雙手合十的意義，一個是祈福，一個是包容，教我們要包容這樣的改變，撫平這樣的傷口。下面的水緩緩流出，代表著人的生命力是不斷地延續下去。緩緩地鐘聲，卻帶來心中的寧靜。
-              這個平安鐘是由建築師姚仁喜與琉璃創作家王俠軍共同設計，長6公尺、寬5公尺，以鑄銅製成，由法鼓山文教基金會全額出資。平安鐘點綴都市景觀，不時提醒大家，面對刻骨銘心的災難痛苦，更應該有謙卑的一顆心。
+            <div
+              class="salepage__middle-description"
+              id="attractionDescription"
+            >
+              <!-- 平安鐘祈求大家的平安，這是為了紀念921地震週年的設計，在喧鬧的廣場上每個小時鳴鐘，保佑平安，祈禱臺灣不會再發生這樣的天災。雙手合十加上108個黃色的琉璃乳丁，隨著緩緩流下的水，在底下的一個小噴泉噴出。雙手合十的意義，一個是祈福，一個是包容，教我們要包容這樣的改變，撫平這樣的傷口。下面的水緩緩流出，代表著人的生命力是不斷地延續下去。緩緩地鐘聲，卻帶來心中的寧靜。
+              這個平安鐘是由建築師姚仁喜與琉璃創作家王俠軍共同設計，長6公尺、寬5公尺，以鑄銅製成，由法鼓山文教基金會全額出資。平安鐘點綴都市景觀，不時提醒大家，面對刻骨銘心的災難痛苦，更應該有謙卑的一顆心。 -->
             </div>
             <div class="salepage__middle-address">
-              <div class="salepage__middle-address-title">景點地址：</div>
-              <div class="salepage__middle-address-content">
-                臺北市 大安區忠孝東路4段
+              <div class="salepage__middle-title">景點地址：</div>
+              <div class="salepage__middle-content" id="attractionAddress">
+                <!-- 臺北市 大安區忠孝東路4段 -->
               </div>
             </div>
             <div class="salepage__middle-transport">
-              <div class="salepage__middle-address-title">交通方式：</div>
-              <div class="salepage__middle-address-content">
-                捷運站名：忠孝復興站4號出口1.公車：204、212、212直、232、232副、262、262(區間)、278、299、521、605、605(副)、605(新台五線)、667、903、忠孝新幹線至頂好市場站
-                2.車位：太平洋崇光百貨地下停車場或市民大道附近地下停車場
+              <div class="salepage__middle-title">交通方式：</div>
+              <div class="salepage__middle-content" id="attractionTransport">
+                <!-- 捷運站名：忠孝復興站4號出口1.公車：204、212、212直、232、232副、262、262(區間)、278、299、521、605、605(副)、605(新台五線)、667、903、忠孝新幹線至頂好市場站
+                2.車位：太平洋崇光百貨地下停車場或市民大道附近地下停車場 -->
               </div>
             </div>
           </div>
@@ -124,6 +176,7 @@
         </div>
       </footer>
       <!-- End Footer -->
+      <script src="{{ url_for('static', filename='js/attraction.js') }}"></script>
     </div>
   </body>
 </html>

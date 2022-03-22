@@ -15,7 +15,8 @@ function init() {
     attraction.appendChild(thumbnail);
 
     // Imgbox
-    let imgbox = document.createElement("div");
+    let imgbox = document.createElement("a");
+    imgbox.setAttribute("href", "/attraction/" + itmeHTML.id);
     imgbox.setAttribute("class", "imgbox");
     thumbnail.appendChild(imgbox);
 
@@ -39,7 +40,8 @@ function init() {
     thumbnail.appendChild(thumbnailInfo);
 
     // Thumbnail Title
-    let thumbnailTitle = document.createElement("div");
+    let thumbnailTitle = document.createElement("a");
+    thumbnailTitle.setAttribute("href", "/attraction/" + itmeHTML.id);
     thumbnailTitle.setAttribute("class", "thumbnail__title");
     thumbnailTitle.textContent = itmeHTML.name;
     thumbnailInfo.appendChild(thumbnailTitle);
@@ -116,9 +118,7 @@ function init() {
         });
       });
   }
-  if (toggleSHOW) {
-    nextPage(currentPage);
-  }
+  nextPage(currentPage);
 
   // 開關
   let toggleK;
@@ -131,7 +131,7 @@ function init() {
   attractionSearchBtn.addEventListener("click", function () {
     let keywordItem = document.querySelector("#keywordItem").value;
     currentPageK = 0;
-    keywordItem.value = "";
+    document.querySelector("#keywordItem").value = "";
     sss = true;
     toggleSHOW = false;
     function nextKeywordPage(nextKeyword) {
