@@ -40,7 +40,7 @@ def api_searchQueryString():
                 LIMIT %s ,12
             """, (next,))
             dateNextpage = cursor.fetchall()
-            print(dateNextpage)
+            # print(dateNextpage)
             if dateNextpage == []:
                 nextpage = None
 
