@@ -56,6 +56,13 @@ def api_searchQueryString():
             # 將資料組成所需的格式
             attractionsData = []
             for pageItem in date:
+
+                # 篩選圖片
+                routeItemImgData = []
+                for routeItemImg in pageItem["file"].split('https://')[1:]:
+                    if routeItemImg[len(routeItemImg)-3:len(routeItemImg)] == "jpg" or routeItemImg[len(routeItemImg)-3:len(routeItemImg)] == "JPG":
+                        routeItemImgData.append("http://"+routeItemImg)
+
                 dataPageJson = {
                     "id": pageItem["_id"],
                     "name": pageItem["stitle"],
@@ -66,7 +73,7 @@ def api_searchQueryString():
                     "mrt": pageItem["MRT"],
                     "latitude": pageItem["latitude"],
                     "longitude": pageItem["longitude"],
-                    "images": [f"https://{routeItemImg}" for routeItemImg in pageItem["file"].split('https://')[1:]]
+                    "images": routeItemImgData
                 }
                 attractionsData.append(dataPageJson)
             return jsonify({"nextPage": nextpage, "data": attractionsData}), 200
@@ -92,6 +99,13 @@ def api_searchQueryString():
             # 將資料組成所需的格式
             attractionsKeyword = []
             for keywordItem in keywordItems:
+
+                # 篩選圖片
+                keywordItemData = []
+                for keywordItemImg in keywordItem["file"].split('https://')[1:]:
+                    if keywordItemImg[len(keywordItemImg)-3:len(keywordItemImg)] == "jpg" or keywordItemImg[len(keywordItemImg)-3:len(keywordItemImg)] == "JPG":
+                        keywordItemData.append("http://"+keywordItemImg)
+
                 dataKeywordJson = {
                     "id": keywordItem["_id"],
                     "name": keywordItem["stitle"],
@@ -102,7 +116,7 @@ def api_searchQueryString():
                     "mrt": keywordItem["MRT"],
                     "latitude": keywordItem["latitude"],
                     "longitude": keywordItem["longitude"],
-                    "images": [f"https://{keywordItemImg}" for keywordItemImg in keywordItem["file"].split('https://')[1:]]
+                    "images": keywordItemData
                 }
                 attractionsKeyword.append(dataKeywordJson)
             return jsonify({"nextPage": nextpage, "data": attractionsKeyword}), 200
@@ -130,6 +144,11 @@ def api_searchRoute(attractionId):
         if routeItem == None:
             return jsonify({"data": True, "message": "查無此筆資料"}), 400
         else:
+            # 篩選圖片
+            routeItemData = []
+            for img in routeItem["file"].split('https://')[1:]:
+                if img[len(img)-3:len(img)] == "jpg" or img[len(img)-3:len(img)] == "JPG":
+                    routeItemData.append("http://"+img)
             # 將資料組成所需的格式
             dataRouteJson = {
                 "id": routeItem["_id"],
@@ -141,7 +160,7 @@ def api_searchRoute(attractionId):
                 "mrt": routeItem["MRT"],
                 "latitude": routeItem["latitude"],
                 "longitude": routeItem["longitude"],
-                "images": [f"https://{img}" for img in routeItem["file"].split('https://')[1:]]
+                "images": routeItemData
             }
         return jsonify({"data": dataRouteJson})
     except:
