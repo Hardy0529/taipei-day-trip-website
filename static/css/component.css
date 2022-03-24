@@ -517,15 +517,14 @@
   color: #666666;
   padding-right: 5px;
 }
-.salepage__form input[type="date"] {
+/* .salepage__form input[type="date"] {
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #000000;
   width: 193px;
   line-height: 33px;
-  padding: 0px 10px;
-}
+} */
 .salepage__form input[type="radio"] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -545,16 +544,12 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-
 .salepage__form .salepage__form-radio-item label:nth-last-of-type(-n + 2) {
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #666666;
-}
-.salepage__form input[type="radio"]:last-child {
-  margin-left: 12px;
 }
 .salepage__form input[type="radio"]:checked {
   background-color: #448899;
