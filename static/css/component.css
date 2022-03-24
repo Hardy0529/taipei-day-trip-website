@@ -517,14 +517,16 @@
   color: #666666;
   padding-right: 5px;
 }
-/* .salepage__form input[type="date"] {
+.salepage__form input[type="date"] {
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #000000;
   width: 193px;
-  line-height: 33px;
-} */
+  height: 38px;
+  border: 1px solid #666666;
+  border-radius: 2px;
+}
 .salepage__form input[type="radio"] {
   -webkit-appearance: none;
   -moz-appearance: none;
