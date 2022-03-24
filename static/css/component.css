@@ -528,7 +528,8 @@
   vertical-align: middle;
   border: none;
   text-align: left;
-  border-radius: 2px;
+  text-align: -webkit-left;
+  border-radius: 4px;
   padding-left: 8px;
   padding-right: 8px;
   background-color: #fff;
