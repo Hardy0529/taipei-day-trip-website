@@ -516,6 +516,7 @@
   line-height: 17px;
   color: #666666;
   padding-right: 5px;
+  vertical-align: middle;
 }
 .salepage__form input[type="date"] {
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
@@ -526,6 +527,8 @@
   height: 38px;
   border: 1px solid #666666;
   border-radius: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 .salepage__form input[type="radio"] {
   -webkit-appearance: none;
