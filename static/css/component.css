@@ -526,10 +526,12 @@
   width: 193px;
   height: 38px;
   vertical-align: middle;
-  border: 1px solid #666666;
+  border: none;
+  text-align: left;
   border-radius: 2px;
   padding-left: 8px;
   padding-right: 8px;
+  background-color: #fff;
 }
 .salepage__form input[type="radio"] {
   -webkit-appearance: none;
