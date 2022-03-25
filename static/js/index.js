@@ -123,10 +123,10 @@ function init() {
   }
   nextPage(currentPage);
 
-  // 開關
-  let toggleK;
   // 關鍵字搜尋
   let currentPageK = 0;
+  // 開關
+  let toggleK;
 
   let attractionSearchBtn = document.querySelector("#attractionSearchBtn");
   let sss;

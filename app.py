@@ -1,9 +1,14 @@
 from flask import *
 from route.attraction import attraction
-
+from route.member import member
 
 app = Flask(__name__)
-app.register_blueprint(attraction, url_prefx="")
+# 景點API
+app.register_blueprint(attraction)
+
+# 會員系統API
+app.register_blueprint(member)
+
 
 # 保持傳遞給 jsonify() 函數的示例搜索的順序
 app.config['JSON_SORT_KEYS'] = False

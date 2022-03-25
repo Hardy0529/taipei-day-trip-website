@@ -20,6 +20,64 @@
   </head>
   <body>
     <div class="wrapper">
+      <!-- Start Login -->
+      <div class="popupBg">
+        <div class="loginbg">
+          <div class="login__form">
+            <div class="popup__close" id="popup_close_loginbg">
+              <i class="icon icon-close"></i>
+            </div>
+            <div class="login__form-title">登入會員帳號</div>
+            <div class="login__form-item">
+              <input type="text" placeholder="輸入電子郵件" />
+            </div>
+            <div class="login__form-item">
+              <input type="text" placeholder="輸入密碼" />
+            </div>
+            <div class="login__form-item">
+              <input class="btn" type="button" value="登入帳戶" />
+            </div>
+            <div class="login__form-item">
+              <div class="login__form-hint">
+                還沒有帳戶？ <span id="login__form-Register"> 點此註冊</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Login -->
+
+      <!-- Start Register -->
+      <div class="popupBg_r">
+        <div class="registerbg">
+          <div class="register__form">
+            <div class="popup__close" id="popup_close_register">
+              <i class="icon icon-close"></i>
+            </div>
+            <div class="register__form-title">註冊會員帳號</div>
+            <div class="register__form-item">
+              <input type="text" placeholder="輸入姓名" />
+            </div>
+            <div class="register__form-item">
+              <input type="text" placeholder="輸入電子郵件" />
+            </div>
+            <div class="register__form-item">
+              <input type="text" placeholder="輸入密碼" />
+            </div>
+            <div class="register__form-item">
+              <input class="btn" type="button" value="登入帳戶" />
+            </div>
+            <div class="register__form-item">
+              <div class="register__form-hint">
+                已經有帳戶了？
+                <span id="register__form-login">點此登入</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Register -->
+
       <!-- Start header -->
       <header class="header">
         <div class="container">
@@ -30,7 +88,9 @@
             <div class="navbar__nav">
               <ul class="nav__menu">
                 <li><a href="#" class="menu__item">預定行程</a></li>
-                <li><a href="#" class="menu__item">登入/註冊</a></li>
+                <li>
+                  <span id="loginToggle" class="menu__item"> 登入/註冊 </span>
+                </li>
               </ul>
             </div>
           </div>
@@ -84,8 +144,12 @@
                   </div> -->
                 </div>
                 <div class="carousel__nav">
-                  <div class="carousel__nav-prev"></div>
-                  <div class="carousel__nav-next"></div>
+                  <div class="carousel__nav-prev">
+                    <i class="icon icon-prev"></i>
+                  </div>
+                  <div class="carousel__nav-next">
+                    <i class="icon icon-next"></i>
+                  </div>
                 </div>
               </div>
               <!-- End Carousel -->
@@ -181,6 +245,7 @@
         </div>
       </footer>
       <!-- End Footer -->
+      <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
       <script src="{{ url_for('static', filename='js/attraction.js') }}"></script>
     </div>
   </body>

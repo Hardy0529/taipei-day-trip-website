@@ -4,6 +4,8 @@
 /** 
  * Globel
  * Button
+ * Light Box
+ * Login/Register
  * Header
  * Jumbotron
  * Carousel
@@ -39,7 +41,7 @@
   /* style */
   font-size: 19px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 400;
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -59,6 +61,129 @@
   -webkit-user-drag: none;
 }
 
+/*-------------------------*/
+/* $Light Box Background
+---------------------------*/
+.popupBg,
+.popupBg_r {
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 101;
+  display: none;
+}
+.popupBg.popupBg__SHOW,
+.popupBg_r.popupBg__SHOW {
+  display: block;
+}
+.popup__close {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  z-index: 102;
+  cursor: pointer;
+}
+.popup__close .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/*-------------------------*/
+/* $Login/Register
+---------------------------*/
+.popupBg .loginbg,
+.popupBg_r .registerbg {
+  width: 100%;
+  max-width: 340px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  transition: 0.3s;
+}
+.popupBg.popupBg__SHOW .loginbg,
+.popupBg_r.popupBg__SHOW .registerbg {
+  width: 100%;
+  max-width: 340px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+.login__form,
+.register__form {
+  padding: 0px 15px;
+  border-top-width: 10px;
+  border-top-style: solid;
+  border-image: linear-gradient(270deg, #337788 0%, #66aabb 100%) 1;
+}
+.login__form .login__form-title,
+.register__form .register__form-title {
+  padding: 15px 0px;
+  font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27px;
+  color: #666666;
+  text-align: center;
+}
+.login__form-item,
+.register__form-item {
+  padding-bottom: 10px;
+}
+.login__form input[type="text"],
+.register__form input[type="text"] {
+  font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  width: 100%;
+  height: 48px;
+  line-height: 34px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding: 15px;
+}
+.login__form input[type="text"]:focus,
+.register__form input[type="text"]:focus {
+  outline: 0;
+  border: 1px solid #33778a;
+}
+
+.login__form-item .btn,
+.register__form-item .btn {
+  width: 100%;
+}
+.login__form-item .login__form-hint,
+.register__form-item .register__form-hint {
+  font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #666666;
+  text-align: center;
+  padding-bottom: 5px;
+}
+#login__form-Register,
+#register__form-login {
+  cursor: pointer;
+  transition: 0.3s;
+}
+#login__form-Register:hover,
+#register__form-login:hover {
+  color: #000000;
+}
 /*-------------------------*/
 /* $Header
 ---------------------------*/
@@ -117,6 +242,8 @@
   padding: 10px 0px;
 }
 .nav__menu li .menu__item {
+  display: inline-block;
+  cursor: pointer;
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -207,7 +334,7 @@
 }
 .attraction__form input[type="text"]:focus {
   outline: 0;
-  border: 1px solid #757575;
+  border: 1px solid #33778a;
 }
 .attraction__Btn {
   border: 0px;
@@ -265,7 +392,6 @@
 .carousel {
   width: 100%;
   overflow: hidden;
-  cursor: pointer;
   position: relative;
 }
 .carousel .carousel__items {
@@ -295,7 +421,6 @@
   left: 0px;
   width: 100%;
   height: 100%;
-  pointer-events: none;
 }
 .carousel .carousel__nav .carousel__nav-prev,
 .carousel .carousel__nav .carousel__nav-next {
@@ -311,19 +436,15 @@
   -webkit-box-shadow: 0 3px 10px rgb(0 0 0 / 50%);
   box-shadow: 0 3px 10px rgb(0 0 0 / 50%);
   opacity: 0.5;
-  pointer-events: painted;
+  cursor: pointer;
+  text-align: center;
+  line-height: 35px;
 }
 .carousel .carousel__nav .carousel__nav-prev {
   left: 24px;
-  background-image: url("/static/images/btn_leftArrow.png");
-  background-size: cover;
-  background-position: right;
 }
 .carousel .carousel__nav .carousel__nav-next {
   right: 24px;
-  background-image: url("/static/images/btn_rightArrow.png");
-  background-size: cover;
-  background-position: left;
 }
 
 /*-------------------------*/
@@ -532,6 +653,10 @@
   padding-right: 8px;
   background-color: #fff;
 }
+.salepage__form input[type="date"]:focus {
+  outline: 0;
+  border: 1px solid #33778a;
+}
 .salepage__form input[type="radio"] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -557,6 +682,7 @@
   font-size: 16px;
   line-height: 24px;
   color: #666666;
+  cursor: pointer;
 }
 .salepage__form input[type="radio"]:checked {
   background-color: #448899;
@@ -776,6 +902,7 @@
   line-height: 17px;
   color: #666666;
   padding-right: 5px;
+  vertical-align: middle;
 }
 .booking__form input[type="text"],
 .booking__form input[type="email"],
@@ -785,17 +912,19 @@
   font-size: 16px;
   color: #000000;
   width: 200px;
-  line-height: 34px;
+  height: 38px;
+
   border: 1px solid #e8e8e8;
-  padding: 0px 10px;
+  padding: 10px;
   border-radius: 4px;
+  vertical-align: middle;
 }
 
 .booking__form input[type="text"]:focus,
 .booking__form input[type="email"]:focus,
 .booking__form input[type="tel"]:focus {
   outline: 0;
-  border: 1px solid #757575;
+  border: 1px solid #33778a;
 }
 
 .booking__form .booking__price {
