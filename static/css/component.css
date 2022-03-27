@@ -143,7 +143,11 @@
   padding-bottom: 10px;
 }
 .login__form input[type="text"],
-.register__form input[type="text"] {
+.login__form input[type="email"],
+.login__form input[type="password"],
+.register__form input[type="text"],
+.register__form input[type="email"],
+.register__form input[type="password"] {
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -156,7 +160,11 @@
   padding: 15px;
 }
 .login__form input[type="text"]:focus,
-.register__form input[type="text"]:focus {
+.login__form input[type="email"]:focus,
+.login__form input[type="password"]:focus,
+.register__form input[type="text"]:focus,
+.register__form input[type="email"]:focus,
+.register__form input[type="password"]:focus {
   outline: 0;
   border: 1px solid #33778a;
 }
