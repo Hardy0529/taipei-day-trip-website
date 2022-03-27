@@ -184,6 +184,18 @@
 #register__form-login:hover {
   color: #000000;
 }
+.login__status,
+.register__status {
+  color: #d93025;
+  display: flex;
+  font-size: 13px;
+  line-height: normal;
+  margin-top: 2px;
+}
+.login__status.login__status-success,
+.register__status.register__status-success {
+  color: #448899;
+}
 /*-------------------------*/
 /* $Header
 ---------------------------*/

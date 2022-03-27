@@ -29,13 +29,16 @@
             </div>
             <div class="login__form-title">登入會員帳號</div>
             <div class="login__form-item">
-              <input type="text" placeholder="輸入電子郵件" />
+              <input type="text" id="loginEmail" placeholder="輸入電子郵件" />
             </div>
             <div class="login__form-item">
-              <input type="text" placeholder="輸入密碼" />
+              <input type="text" id="loginPassword" placeholder="輸入密碼" />
             </div>
             <div class="login__form-item">
-              <input class="btn" type="button" value="登入帳戶" />
+              <input class="btn" id="loginBtn" type="button" value="登入帳戶" />
+            </div>
+            <div class="login__form-item">
+              <div class="login__status" id="login_status"></div>
             </div>
             <div class="login__form-item">
               <div class="login__form-hint">
@@ -56,16 +59,28 @@
             </div>
             <div class="register__form-title">註冊會員帳號</div>
             <div class="register__form-item">
-              <input type="text" placeholder="輸入姓名" />
+              <input type="text" id="registerName" placeholder="輸入姓名" />
             </div>
             <div class="register__form-item">
-              <input type="text" placeholder="輸入電子郵件" />
+              <input
+                type="text"
+                id="registerEmail"
+                placeholder="輸入電子郵件"
+              />
             </div>
             <div class="register__form-item">
-              <input type="text" placeholder="輸入密碼" />
+              <input type="text" id="registerPassword" placeholder="輸入密碼" />
             </div>
             <div class="register__form-item">
-              <input class="btn" type="button" value="登入帳戶" />
+              <input
+                class="btn"
+                id="registerBtn"
+                type="button"
+                value="登入帳戶"
+              />
+            </div>
+            <div class="register__form-item">
+              <div class="register__status" id="register_status"></div>
             </div>
             <div class="register__form-item">
               <div class="register__form-hint">
@@ -90,6 +105,9 @@
                 <li><a href="#" class="menu__item">預定行程</a></li>
                 <li>
                   <span id="loginToggle" class="menu__item"> 登入/註冊 </span>
+                </li>
+                <li>
+                  <span id="loginOut" class="menu__item"> 登出系統 </span>
                 </li>
               </ul>
             </div>
@@ -137,6 +155,7 @@
       </footer>
       <!-- End Footer -->
       <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/member.js') }}"></script>
       <script src="{{ url_for('static', filename='js/index.js') }}"></script>
     </div>
   </body>

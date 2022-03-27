@@ -608,8 +608,6 @@ ul {
   text-align: center !important;
 }
 
-@media (max-width: 768px) {
-  .u-xs-hidden {
-    display: none !important;
-  }
+.u-display-hidden {
+  display: none !important;
 }
