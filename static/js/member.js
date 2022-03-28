@@ -1,4 +1,5 @@
 function init() {
+  let popupBg = document.querySelector(".popupBg");
   // 檢查狀態
   let loginToggle = document.querySelector("#loginToggle");
   let loginOut = document.querySelector("#loginOut");
@@ -126,6 +127,7 @@ function init() {
             "class",
             "login__status login__status-success"
           );
+          popupBg.setAttribute("class", "popupBg");
           memberCheckFun();
         }
       });
