@@ -39,19 +39,28 @@ function init() {
             price: priceData,
           };
 
-          fetch("/api/booking", {
-            method: "POST", // or 'PUT'
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(bookingData),
-          })
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (result) {
-              console.log(result);
-            });
+          // fetch("/api/booking", {
+          //   method: "POST", // or 'PUT'
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify(bookingData),
+          // })
+          //   .then(function (response) {
+          //     return response.json();
+          //   })
+          //   .then(function (result) {
+          //     console.log(result);
+          //   });
+
+          let xmlhttp = new XMLHttpRequest();
+          let theUrl = "/api/booking";
+          xmlhttp.open("POST", theUrl);
+          xmlhttp.setRequestHeader(
+            "Content-Type",
+            "application/json;charset=UTF-8"
+          );
+          xmlhttp.send(JSON.stringify(bookingData));
 
           document.location = "/booking";
         }
