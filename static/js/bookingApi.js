@@ -25,6 +25,10 @@ function init() {
           );
           let booking_image = document.querySelector("#booking_image");
 
+          let booking__price_total = document.querySelector(
+            "#booking__price_total"
+          );
+
           booking_content_title.innerHTML = result.data.attraction.name;
           booking_content_date.innerHTML = result.data.date;
           if (result.data.time == "afternoon") {
@@ -35,19 +39,22 @@ function init() {
           booking_content_cost.innerHTML = result.data.price;
           booking_contentplace.innerHTML = result.data.attraction.address;
 
-          let imgContent = `  <div class="imgbox">
-        <div class="imgbox__inner imgbox__inner-4-3">
-          <div class="imgBox-fit">
-            <img
-              class="image"
-              src="${result.data.attraction.image}"
-              alt="新北投溫泉區"
-              title="新北投溫泉區"
-            />
-          </div>
-        </div>
-      </div>`;
+          let imgContent = ` <div class="imgbox">
+                                <div class="imgbox__inner imgbox__inner-4-3">
+                                  <div class="imgBox-fit">
+                                    <img
+                                      class="image"
+                                      src="${result.data.attraction.image}"
+                                      alt="新北投溫泉區"
+                                      title="新北投溫泉區"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            `;
           booking_image.innerHTML = imgContent;
+
+          booking__price_total.innerHTML = result.data.price;
         } else {
           booking_info_Show.innerHTML = "<p>沒有預定行程</p>";
         }

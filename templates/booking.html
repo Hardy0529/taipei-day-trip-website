@@ -130,7 +130,7 @@
       <section class="booking">
         <div class="booking__container">
           <div class="booking__top-section">
-            <div class="booking__member">您好，Yakko，待預訂的行程如下：</div>
+            <div class="booking__member">您好，{{username}}，待預訂的行程如下：</div>
             <div id="booking_info-Show">
               <div class="booking__info" >
                 <div class="booking__image" id="booking_image">
@@ -194,7 +194,7 @@
                   </div>
                 </div>
     
-                <div class="booking__price">總價：新台幣 2000 元</div>
+                <div class="booking__price">總價：新台幣 <span id="booking__price_total">2000</span> 元</div>
                 <div class="booking__btn">
                   <input class="btn" type="button" value="確認訂購並付款" />
                 </div>
