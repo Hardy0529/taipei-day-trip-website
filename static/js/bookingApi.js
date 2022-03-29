@@ -49,7 +49,7 @@ function init() {
       </div>`;
           booking_image.innerHTML = imgContent;
         } else {
-          booking_info_Show.innerHTML = "沒有預定行程";
+          booking_info_Show.innerHTML = "<p>沒有預定行程</p>";
         }
       });
   }
