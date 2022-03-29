@@ -37,7 +37,9 @@ function init() {
       })
       .then(function (result) {
         console.log(result);
+
         memberCheckFun();
+        window.location.reload();
       });
   });
 
@@ -122,7 +124,6 @@ function init() {
           login_status.innerHTML = result.message;
           login_status.setAttribute("class", "login__status");
         } else if (result.ok) {
-          login_status.innerHTML = "登入成功";
           login_status.setAttribute(
             "class",
             "login__status login__status-success"

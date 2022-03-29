@@ -110,7 +110,9 @@
             </div>
             <div class="navbar__nav">
               <ul class="nav__menu">
-                <li><a href="#" class="menu__item">預定行程</a></li>
+                <li>
+                  <spna id="booking_Check" class="menu__item">預定行程</span >
+                </li>
                 <li>
                   <span id="loginToggle" class="menu__item"> 登入/註冊 </span>
                 </li>
@@ -210,17 +212,19 @@
 
                   <input
                     type="radio"
-                    name="time"
+                    name="userid"
                     id="salepage__form-time-daytime"
-                    value="2000"
+                    value="afternoon"
+                    checked
                   />
                   <label for="salepage__form-time-daytime"> 上半天</label>
 
                   <input
                     type="radio"
-                    name="time"
+                    name="userid"
                     id="salepage__form-time-night"
-                    value="2500"
+                    value="evening"
+                    
                   />
                   <label for="salepage__form-time-night"> 下半天</label>
                 </div>
@@ -233,7 +237,7 @@
                 </div>
 
                 <div class="salepage__form-item">
-                  <input class="btn" type="button" value="開始預定行程" />
+                  <input class="btn" id="booking_Check_btn"  type="button" value="開始預定行程" />
                 </div>
               </form>
             </div>
@@ -273,7 +277,9 @@
       <!-- End Footer -->
       <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
       <script src="{{ url_for('static', filename='js/member.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bookingCheck.js') }}"></script>
       <script src="{{ url_for('static', filename='js/attraction.js') }}"></script>
+
     </div>
   </body>
 </html>

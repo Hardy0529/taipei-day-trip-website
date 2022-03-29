@@ -86,13 +86,13 @@ function init() {
 
       attraction_radio_daytime.addEventListener("click", function () {
         let ccc = attraction_radio_daytime.getAttribute("value");
-        console.log(ccc);
-        salepageFormPriceId.innerHTML = ` <spqn class="salepage__form-price" id="salepageFormPriceId">新台幣 <span>${ccc}</span> 元</spqn>`;
+
+        salepageFormPriceId.innerHTML = ` <spqn class="salepage__form-price" id="salepageFormPriceId">新台幣 <span>2000</span> 元</spqn>`;
       });
       attraction_radio_night.addEventListener("click", function () {
         let bbb = attraction_radio_night.getAttribute("value");
-        console.log(bbb);
-        salepageFormPriceId.innerHTML = ` <spqn class="salepage__form-price" id="salepageFormPriceId">新台幣 <span>${bbb}</span> 元</spqn>`;
+
+        salepageFormPriceId.innerHTML = ` <spqn class="salepage__form-price" id="salepageFormPriceId">新台幣 <span>2500</span> 元</spqn>`;
       });
     });
 }

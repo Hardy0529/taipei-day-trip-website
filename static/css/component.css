@@ -825,7 +825,7 @@
   .booking__content {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 calc(60% - 30px);
-    flex: 1 1 calc(60% - 30px);
+    flex: 1 1 calc(60% - 50px);
     padding-left: 10px;
   }
 }
@@ -833,7 +833,7 @@
   .booking__content {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 calc(70% - 30px);
-    flex: 1 1 calc(70% - 30px);
+    flex: 1 1 calc(70% - 50px);
   }
 }
 .booking__content-title {
@@ -883,6 +883,14 @@
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
   }
+}
+.booking__delete .booking__Icon-delete {
+  display: block;
+  padding: 8px 4px;
+  margin: -8px -4px;
+  cursor: pointer;
+
+  text-align: center;
 }
 .booking__delete .booking__Icon-delete .icon-delete {
   width: 30px;
