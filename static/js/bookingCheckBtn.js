@@ -2,6 +2,7 @@ function init() {
   let booking_Check_btn = document.querySelector("#booking_Check_btn");
 
   // 按鈕 開始預定行程
+  let popupBg = document.querySelector(".popupBg");
   booking_Check_btn.addEventListener("click", function () {
     fetch("/api/user")
       .then(function (response) {
