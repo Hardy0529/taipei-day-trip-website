@@ -1,6 +1,31 @@
 function init() {
   let booking_Check_btn = document.querySelector("#booking_Check_btn");
   booking_Check_btn.addEventListener("click", function () {
+    let salepage__form_date = document.querySelector(
+      "#salepage__form-date"
+    ).value;
+    let attractionId = location.pathname.replace("/attraction/", "");
+    let selected = document.querySelector("input[type='radio']:checked").value;
+
+    let priceData = "";
+    if (selected == "afternoon") {
+      priceData = 2000;
+    } else if (selected == "evening") {
+      priceData = 2500;
+    }
+
+    console.log(salepage__form_date);
+    console.log(attractionId);
+    console.log(selected);
+    console.log(priceData);
+
+    const bookingData = {
+      attractionId: attractionId,
+      date: salepage__form_date,
+      time: selected,
+      price: priceData,
+    };
+
     fetch("/api/booking", {
       method: "POST", // or 'PUT'
       headers: {
