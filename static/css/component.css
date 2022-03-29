@@ -889,8 +889,11 @@
   padding: 8px 4px;
   margin: -8px -4px;
   cursor: pointer;
-
-  text-align: center;
+}
+@media (min-width: 576px) {
+  .booking__delete .booking__Icon-delete {
+    text-align: center;
+  }
 }
 .booking__delete .booking__Icon-delete .icon-delete {
   width: 30px;
