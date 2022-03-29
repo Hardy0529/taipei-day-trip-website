@@ -580,10 +580,19 @@ ul {
   background-position: center;
 }
 .icon-search {
-  background-image: url("/static/images/icon_search.png");
+  background-image: url("/static/images/icon/icon_search.png");
 }
 .icon-delete {
-  background-image: url("/static/images/icon_delete.png");
+  background-image: url("/static/images/icon/icon_delete.png");
+}
+.icon-close {
+  background-image: url("/static/images/icon/icon_close.png");
+}
+.icon-prev {
+  background-image: url("/static/images/icon/btn_leftArrow.png");
+}
+.icon-next {
+  background-image: url("/static/images/icon/btn_rightArrow.png");
 }
 
 /*-------------------------*/
@@ -599,8 +608,6 @@ ul {
   text-align: center !important;
 }
 
-@media (max-width: 768px) {
-  .u-xs-hidden {
-    display: none !important;
-  }
+.u-display-hidden {
+  display: none !important;
 }

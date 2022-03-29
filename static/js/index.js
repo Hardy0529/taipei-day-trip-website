@@ -25,14 +25,17 @@ function init() {
     imgboxInner.setAttribute("class", "imgbox__inner imgbox__inner-5-3");
     imgbox.appendChild(imgboxInner);
 
+    let imgFix = document.createElement("div");
+    imgFix.setAttribute("class", "imgBox-fit");
+    imgboxInner.appendChild(imgFix);
+
     // Image
-    let image = document.createElement("div");
+    let image = document.createElement("img");
     image.setAttribute("class", "image");
-    image.setAttribute(
-      "style",
-      "background-image: url('" + itmeHTML.images[0] + "')"
-    );
-    imgboxInner.appendChild(image);
+    image.setAttribute("src", itmeHTML.images[0]);
+    image.setAttribute("alt", itmeHTML.name);
+    image.setAttribute("title", itmeHTML.name);
+    imgFix.appendChild(image);
 
     // Thumbnail Info
     let thumbnailInfo = document.createElement("div");
@@ -120,10 +123,10 @@ function init() {
   }
   nextPage(currentPage);
 
-  // 開關
-  let toggleK;
   // 關鍵字搜尋
   let currentPageK = 0;
+  // 開關
+  let toggleK;
 
   let attractionSearchBtn = document.querySelector("#attractionSearchBtn");
   let sss;

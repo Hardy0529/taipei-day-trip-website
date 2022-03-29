@@ -7,6 +7,7 @@ function init() {
       return response.json();
     })
     .then(function (result) {
+      let name = result.data.name;
       // 輪播圖
       let carouselNext = document.querySelector(".carousel__nav-next");
       let carouselPrev = document.querySelector(".carousel__nav-prev");
@@ -17,31 +18,19 @@ function init() {
 
       let pageTotal = -1;
 
-      let arry = [];
-      for (let i = 0; i < result.data.images.length; i++) {
-        if (
-          result.data.images[i].substr(-3) == "jpg" ||
-          result.data.images[i].substr(-3) == "JPG"
-        ) {
-          arry.push(result.data.images[i]);
-        }
-      }
-
-      arry.forEach(function (item) {
+      result.data.images.forEach(function (item) {
         pageTotal += 1;
 
         let imgItem = ` <div class="carousel__item">
-              <div class="imgbox">
-                <div class="imgbox__inner imgbox__inner-4-3">
-                  <div
-                    class="image"
-                    style="
-                      background-image: url('${item}');
-                    "
-                  ></div>
-                </div>
-              </div>
-            </div>`;
+                          <div class="imgbox">
+                            <div class="imgbox__inner imgbox__inner-4-3">
+                              <div class="imgBox-fit">
+                                <img class="image" src="${item}" alt="${name}" title="${name}">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      `;
         imgItems += imgItem;
       });
       carouselItems.innerHTML = imgItems;
@@ -97,13 +86,13 @@ function init() {
 
       attraction_radio_daytime.addEventListener("click", function () {
         let ccc = attraction_radio_daytime.getAttribute("value");
-        console.log(ccc);
-        salepageFormPriceId.innerHTML = ` <spqn class="salepage__form-price" id="salepageFormPriceId">新台幣 <span>${ccc}</span> 元</spqn>`;
+
+        salepageFormPriceId.innerHTML = ` <spqn class="salepage__form-price" id="salepageFormPriceId">新台幣 <span>2000</span> 元</spqn>`;
       });
       attraction_radio_night.addEventListener("click", function () {
         let bbb = attraction_radio_night.getAttribute("value");
-        console.log(bbb);
-        salepageFormPriceId.innerHTML = ` <spqn class="salepage__form-price" id="salepageFormPriceId">新台幣 <span>${bbb}</span> 元</spqn>`;
+
+        salepageFormPriceId.innerHTML = ` <spqn class="salepage__form-price" id="salepageFormPriceId">新台幣 <span>2500</span> 元</spqn>`;
       });
     });
 }
