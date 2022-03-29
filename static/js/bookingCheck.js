@@ -1,5 +1,6 @@
 function init() {
   let booking_Check_btn = document.querySelector("#booking_Check_btn");
+
   let booking_Check = document.querySelector("#booking_Check");
 
   // header 預定行程
