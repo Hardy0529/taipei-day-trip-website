@@ -106,7 +106,7 @@ booking_Check_btn_post.addEventListener("click", function () {
           .then(function (result) {
             console.log(result);
           });
-        document.location = "/booking";
+        // document.location = "/booking";
       }
     });
 });
