@@ -182,7 +182,7 @@ function init() {
             });
           }
           if (result.data.length == 0) {
-            list.innerHTML = "未搜尋到任何結果";
+            list.innerHTML = "<div class='col'>未搜尋到任何結果</div>";
           }
         });
     }
