@@ -1,6 +1,7 @@
 /*
  * WeHelp Bootcap Assignment - Taipei Trip 台北一日遊
  */
+
 /** 
  * Globel
  * Button
@@ -9,9 +10,10 @@
  * Header
  * Jumbotron
  * Carousel
+ * Img Box
  * Thumbnail
  * Attraction Thumbnail
- * Attractions
+ * Attraction
  * Booking
  * Footer
 **/
@@ -105,8 +107,12 @@
   position: absolute;
   top: 70px;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   overflow: hidden;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 .popupBg.popupBg__SHOW .loginbg,
@@ -118,6 +124,8 @@
   position: absolute;
   top: 80px;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   overflow: hidden;
 }
@@ -126,6 +134,15 @@
   padding: 0px 15px;
   border-top-width: 10px;
   border-top-style: solid;
+  -o-border-image: -o-linear-gradient(right, #337788 0%, #66aabb 100%) 1;
+  border-image: -webkit-gradient(
+      linear,
+      right top,
+      left top,
+      from(#337788),
+      to(#66aabb)
+    )
+    1;
   border-image: linear-gradient(270deg, #337788 0%, #66aabb 100%) 1;
 }
 .login__form .login__form-title,
@@ -186,6 +203,8 @@
 #login__form-Register,
 #register__form-login {
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 #login__form-Register:hover,
@@ -195,6 +214,8 @@
 .login__status,
 .register__status {
   color: #d93025;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-size: 13px;
   line-height: normal;
@@ -889,8 +910,11 @@
   padding: 8px 4px;
   margin: -8px -4px;
   cursor: pointer;
-
-  text-align: center;
+}
+@media (min-width: 576px) {
+  .booking__delete .booking__Icon-delete {
+    text-align: center;
+  }
 }
 .booking__delete .booking__Icon-delete .icon-delete {
   width: 30px;

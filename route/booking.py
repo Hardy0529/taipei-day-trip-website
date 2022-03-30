@@ -45,6 +45,7 @@ def api_booking():
         else:
             return jsonify({"erro": True, "message": "未登入系統，拒絕存取"}), 403
     if request.method == "POST":
+
         if "email" in session:
             try:
                 attractionId = request.json["attractionId"]
@@ -71,7 +72,7 @@ def api_booking():
                     session["date"] = date
                     session["time"] = time
                     session["price"] = price
-
+                    print("Post成功")
                     return jsonify({"ok": True}), 200
             except:
                 return jsonify({"error": True, "message": "伺服器內部錯誤"}), 500

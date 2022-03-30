@@ -130,7 +130,7 @@
       <section class="booking">
         <div class="booking__container">
           <div class="booking__top-section">
-            <div class="booking__member">您好，Yakko，待預訂的行程如下：</div>
+            <div class="booking__member">您好，{{username}}，待預訂的行程如下：</div>
             <div id="booking_info-Show">
               <div class="booking__info" >
                 <div class="booking__image" id="booking_image">
@@ -145,7 +145,7 @@
                     時間：<span id="booking_content-time"></span>
                   </div>
                   <div class="booking__content-cost">
-                    費用：新台幣 <span id="booking_content-cost"></span> 元
+                    費用：<span>新台幣 <span id="booking_content-cost"></span> 元</span>
                   </div>
                   <div class="booking__content-place">
                     地點：<span id="booking_content-place"></span>
@@ -194,7 +194,7 @@
                   </div>
                 </div>
     
-                <div class="booking__price">總價：新台幣 2000 元</div>
+                <div class="booking__price">總價：新台幣 <span id="booking__price_total">2000</span> 元</div>
                 <div class="booking__btn">
                   <input class="btn" type="button" value="確認訂購並付款" />
                 </div>
@@ -216,9 +216,9 @@
       <!-- End Footer -->
       <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
       <script src="{{ url_for('static', filename='js/member.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/bookingCheck.js') }}"></script>
       <script src="{{ url_for('static', filename='js/bookingApi.js') }}"></script>
-
+      <script src="{{ url_for('static', filename='js/bookingCheck.js') }}"></script>
+     
     </div>
   </body>
 </html>

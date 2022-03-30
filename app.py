@@ -36,7 +36,8 @@ def attraction(id):
 @app.route("/booking")
 def booking():
     if "email" in session:
-        return render_template("booking.html")
+        name = session["name"]
+        return render_template("booking.html", username = name)
     else:
         return render_template("index.html")
 
