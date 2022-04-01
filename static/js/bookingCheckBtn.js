@@ -1,60 +1,83 @@
-function init() {
-  let booking_Check_btn = document.querySelector("#booking_Check_btn");
-
-  // 按鈕 開始預定行程
-  let popupBg = document.querySelector(".popupBg");
-  booking_Check_btn.addEventListener("click", function () {
+/* ---------
+    model 
+------------ */
+// 檢查使用者狀態
+function userCheckFun() {
+  let booking_Check_Btn = document.querySelector("#booking_Check-Btn");
+  booking_Check_Btn.addEventListener("click", function () {
     fetch("/api/user")
       .then(function (response) {
         return response.json();
       })
       .then(function (result) {
-        if (result.data == null) {
-          popupBg.setAttribute("class", "popupBg popupBg__SHOW");
-        } else if (result.data != null) {
-          let salepage__form_date = document.querySelector(
-            "#salepage__form-date"
-          ).value;
-          let attractionId = location.pathname.replace("/attraction/", "");
-          let selected = document.querySelector(
-            "input[type='radio']:checked"
-          ).value;
-
-          let priceData = "";
-          if (selected == "afternoon") {
-            priceData = 2000;
-          } else if (selected == "evening") {
-            priceData = 2500;
-          }
-
-          console.log(salepage__form_date);
-          console.log(attractionId);
-          console.log(selected);
-          console.log(priceData);
-
-          const bookingData = {
-            attractionId: attractionId,
-            date: salepage__form_date,
-            time: selected,
-            price: priceData,
-          };
-
-          fetch("/api/booking", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(bookingData),
-          })
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (result) {
-              console.log(result);
-              document.location = "/booking";
-            });
-        }
+        userCheckResult(result);
       });
   });
+}
+
+// 連線booking API
+function bookingBtnFun() {
+  // ID
+  let attractionId = location.pathname.replace("/attraction/", "");
+  // 日期值
+  let date = document.querySelector("#booking_date").value;
+  // 時間
+  let time = document.querySelector("input[type='radio']:checked").value;
+  // 價格
+  let price = "";
+  if (time == "afternoon") {
+    price = 2000;
+  } else if (time == "evening") {
+    price = 2500;
+  }
+
+  const bookingData = {
+    attractionId,
+    date,
+    time,
+    price,
+  };
+
+  fetch("/api/booking", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(bookingData),
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (result) {
+      connectBookingPage(result);
+    });
+}
+
+/* ---------
+    view 
+------------ */
+// 檢視使用者狀態
+function userCheckResult(result) {
+  let popup_login = document.querySelector("#popup_login");
+  if (result.data == null) {
+    popup_login.classList.add("popupBg__SHOW");
+  } else if (result.data != null) {
+    // 連線booking Api
+    bookingBtnFun();
+  }
+}
+
+function connectBookingPage(result) {
+  if (result.ok == true) {
+    document.location = "/booking";
+  }
+}
+
+/* ----------
+  controller 
+------------- */
+function init() {
+  // 檢查使用者狀態
+  userCheckFun();
 }
 init();

@@ -21,32 +21,32 @@
   <body>
     <div class="wrapper">
       <!-- Start Login -->
-      <div class="popupBg">
+      <div class="popup__login" id="popup_login">
         <div class="loginbg">
           <div class="login__form">
-            <div class="popup__close" id="popup_close_loginbg">
+            <div class="popup__close" id="popup_close-login">
               <i class="icon icon-close"></i>
             </div>
             <div class="login__form-title">登入會員帳號</div>
             <div class="login__form-item">
-              <input type="email" id="loginEmail" placeholder="輸入電子郵件" />
+              <input type="email" id="login_Email" placeholder="輸入電子郵件" />
             </div>
             <div class="login__form-item">
               <input
                 type="password"
-                id="loginPassword"
+                id="login_Password"
                 placeholder="輸入密碼"
               />
             </div>
             <div class="login__form-item">
-              <input class="btn" id="loginBtn" type="button" value="登入帳戶" />
+              <input class="btn" id="login_Btn" type="button" value="登入帳戶" />
             </div>
             <div class="login__form-item">
               <div class="login__status" id="login_status"></div>
             </div>
             <div class="login__form-item">
               <div class="login__form-hint">
-                還沒有帳戶？ <span id="login__form-Register"> 點此註冊</span>
+                還沒有帳戶？ <span id="guide_register-Btn"> 點此註冊</span>
               </div>
             </div>
           </div>
@@ -55,34 +55,34 @@
       <!-- End Login -->
 
       <!-- Start Register -->
-      <div class="popupBg_r">
+      <div class="popup__register" id="popup_register">
         <div class="registerbg">
           <div class="register__form">
-            <div class="popup__close" id="popup_close_register">
+            <div class="popup__close" id="popup_close-register">
               <i class="icon icon-close"></i>
             </div>
             <div class="register__form-title">註冊會員帳號</div>
             <div class="register__form-item">
-              <input type="text" id="registerName" placeholder="輸入姓名" />
+              <input type="text" id="register_Name" placeholder="輸入姓名" />
             </div>
             <div class="register__form-item">
               <input
                 type="email"
-                id="registerEmail"
+                id="register_Email"
                 placeholder="輸入電子郵件"
               />
             </div>
             <div class="register__form-item">
               <input
                 type="password"
-                id="registerPassword"
+                id="register_Password"
                 placeholder="輸入密碼"
               />
             </div>
             <div class="register__form-item">
               <input
                 class="btn"
-                id="registerBtn"
+                id="register_Btn"
                 type="button"
                 value="註冊帳戶"
               />
@@ -93,7 +93,7 @@
             <div class="register__form-item">
               <div class="register__form-hint">
                 已經有帳戶了？
-                <span id="register__form-login">點此登入</span>
+                <span id="guide_login-Btn">點此登入</span>
               </div>
             </div>
           </div>
@@ -111,13 +111,13 @@
             <div class="navbar__nav">
               <ul class="nav__menu">
                 <li>
-                  <spna id="booking_Check" class="menu__item">預定行程</span >
+                  <spna id="booking-Check" class="menu__item">預定行程</span >
                 </li>
                 <li>
-                  <span id="loginToggle" class="menu__item"> 登入/註冊 </span>
+                  <span id="login-Popup" class="menu__item"> 登入/註冊 </span>
                 </li>
                 <li>
-                  <span id="loginOut" class="menu__item"> 登出系統 </span>
+                  <span id="signOut-Btn" class="menu__item"> 登出系統 </span>
                 </li>
               </ul>
             </div>
@@ -137,11 +137,11 @@
             <input
               type="text"
               name=""
-              id="keywordItem"
+              id="attraction_keyword_Input"
               placeholder="輸入景點名稱查詢"
             />
 
-            <button class="attraction__Btn" id="attractionSearchBtn">
+            <button class="attraction__Btn" onclick="keywordsearch()">
               <i class="icon icon-search"></i>
             </button>
           </div>
@@ -151,8 +151,8 @@
 
       <!-- Start Attractions Thumbnail -->
       <section class="attractions__thumbnail">
-        <div class="container" id="attractions_container">
-          <div class="row" id="attractions_items"></div>
+        <div class="container">
+          <div class="row" id="attractions_row"></div>
         </div>
       </section>
       <!-- End Attractions Thumbnail -->
@@ -164,10 +164,14 @@
         </div>
       </footer>
       <!-- End Footer -->
+
       <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
       <script src="{{ url_for('static', filename='js/member.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/bookingCheck.js') }}"></script>
       <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bookingCheck.js') }}"></script>
+
+      
+
 
     </div>
   </body>

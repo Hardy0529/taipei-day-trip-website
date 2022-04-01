@@ -1,137 +1,173 @@
-function init() {
-  let popupBg = document.querySelector(".popupBg");
-  // 檢查狀態
-  let loginToggle = document.querySelector("#loginToggle");
-  let loginOut = document.querySelector("#loginOut");
-  let register_status = document.querySelector("#register_status");
-  let login_status = document.querySelector("#login_status");
-  function memberCheckFun() {
-    fetch("/api/user")
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (result) {
-        if (result.data == null) {
-          loginToggle.setAttribute("class", "menu__item ");
-          loginOut.setAttribute("class", "menu__item u-display-hidden");
-        } else if (result.data != null) {
-          loginToggle.setAttribute("class", "menu__item u-display-hidden");
-          loginOut.setAttribute("class", "menu__item ");
-        }
-      });
-  }
-  memberCheckFun();
-
-  // 登出
-  loginOut.addEventListener("click", function () {
-    login_status.innerHTML = "";
-    register_status.innerHTML = "";
-    fetch("/api/user", {
-      method: "DELETE", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
+/* ---------
+    model 
+------------ */
+// 取得當前登入的使用者資訊
+function userStatusFun() {
+  fetch("/api/user")
+    .then(function (response) {
+      return response.json();
     })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (result) {
-        console.log(result);
+    .then(function (result) {
+      // 顯示【登出系統】【登入/註冊】按鈕
+      userStatusCheck(result);
+    });
+}
 
-        memberCheckFun();
-        window.location.reload();
-      });
-  });
-
-  // 註冊
-  let registerBtn = document.querySelector("#registerBtn");
-  registerBtn.addEventListener("click", function () {
-    let registerName = document.querySelector("#registerName").value;
-    let registerEmail = document.querySelector("#registerEmail").value;
-    let registerPassword = document.querySelector("#registerPassword").value;
-
-    login_status.innerHTML = "";
-    register_status.innerHTML = "";
-
-    document.querySelector("#registerName").value = "";
-    document.querySelector("#registerEmail").value = "";
-    document.querySelector("#registerPassword").value = "";
+// 註冊
+function registerFun() {
+  let register_Btn = document.querySelector("#register_Btn");
+  register_Btn.addEventListener("click", function () {
+    // 抓取註冊輸入框值
+    let register_Name = document.querySelector("#register_Name").value;
+    let register_Email = document.querySelector("#register_Email").value;
+    let register_Password = document.querySelector("#register_Password").value;
 
     const registerData = {
-      name: registerName,
-      email: registerEmail,
-      password: registerPassword,
+      name: register_Name,
+      email: register_Email,
+      password: register_Password,
     };
 
     fetch("/api/user", {
-      method: "POST", // or 'PUT'
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(registerData),
     })
       .then(function (response) {
-        console.log(response);
         return response.json();
       })
       .then(function (result) {
-        console.log(result);
-        if (result.error) {
-          register_status.innerHTML = result.message;
-          register_status.setAttribute("class", "register__status");
-        } else if (result.ok) {
-          register_status.innerHTML = "註冊成功";
-          register_status.setAttribute(
-            "class",
-            "register__status register__status-success"
-          );
-          memberCheckFun();
-        }
+        registerResultShow(result);
       });
   });
+}
 
-  // 登入
-  let loginBtn = document.querySelector("#loginBtn");
-  loginBtn.addEventListener("click", function () {
-    let loginEmail = document.querySelector("#loginEmail").value;
-    let loginPassword = document.querySelector("#loginPassword").value;
-
-    login_status.innerHTML = "";
-    register_status.innerHTML = "";
-
-    document.querySelector("#loginEmail").value = "";
-    document.querySelector("#loginPassword").value = "";
+// 登入
+function loginFun() {
+  let login_Btn = document.querySelector("#login_Btn");
+  login_Btn.addEventListener("click", function () {
+    let login_Email = document.querySelector("#login_Email").value;
+    let login_Password = document.querySelector("#login_Password").value;
 
     const loginData = {
-      email: loginEmail,
-      password: loginPassword,
+      email: login_Email,
+      password: login_Password,
     };
 
     fetch("/api/user", {
-      method: "PATCH", // or 'PUT'
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(loginData),
     })
       .then(function (response) {
-        console.log(response);
+        return response.json();
+      })
+      .then(function (result) {
+        loginResultShow(result);
+      });
+  });
+}
+
+// 登出
+function signOutFun() {
+  let signOut_Btn = document.querySelector("#signOut-Btn");
+  signOut_Btn.addEventListener("click", function () {
+    fetch("/api/user", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(function (response) {
         return response.json();
       })
       .then(function (result) {
         console.log(result);
-        if (result.error) {
-          login_status.innerHTML = result.message;
-          login_status.setAttribute("class", "login__status");
-        } else if (result.ok) {
-          login_status.setAttribute(
-            "class",
-            "login__status login__status-success"
-          );
-          popupBg.setAttribute("class", "popupBg");
-          memberCheckFun();
-        }
+
+        // memberCheckFun();
+        window.location.reload();
       });
   });
 }
+
+/* ---------
+    view 
+------------ */
+// 顯示【登出系統】【登入/註冊】按鈕
+function userStatusCheck(userApi) {
+  let login_Popup = document.querySelector("#login-Popup");
+  let signOut_Btn = document.querySelector("#signOut-Btn");
+  if (userApi.data == null) {
+    login_Popup.classList.remove("u-display-hidden");
+    signOut_Btn.classList.add("u-display-hidden");
+  } else if (userApi.data != null) {
+    login_Popup.classList.add("u-display-hidden");
+    signOut_Btn.classList.remove("u-display-hidden");
+  }
+}
+
+// 顯示註冊結果
+function registerResultShow(result) {
+  // 送出值後清空輸入框
+  document.querySelector("#register_Name").value = "";
+  document.querySelector("#register_Email").value = "";
+  document.querySelector("#register_Password").value = "";
+
+  // 註冊狀態
+  let register_status = document.querySelector("#register_status");
+
+  if (result.ok) {
+    register_status.innerHTML = "註冊成功";
+    register_status.setAttribute(
+      "class",
+      "register__status register__status-success"
+    );
+  } else if (result.error) {
+    register_status.innerHTML = result.message;
+    register_status.setAttribute("class", "register__status");
+  }
+}
+
+// 顯示登入結果
+function loginResultShow(result) {
+  document.querySelector("#login_Email").value = "";
+  document.querySelector("#login_Password").value = "";
+
+  // 登入狀態
+  let login_status = document.querySelector("#login_status");
+
+  // 登入/註冊
+  let popup_login = document.querySelector("#popup_login");
+
+  if (result.ok) {
+    popup_login.classList.remove("popupBg__SHOW");
+    userStatusFun();
+  } else if (result.error) {
+    login_status.innerHTML = result.message;
+    login_status.setAttribute("class", "register__status");
+  }
+}
+
+/* ----------
+  controller 
+------------- */
+// 初始化 檢查使用者狀態
+function init() {
+  // 取得當前登入的使用者資訊
+  userStatusFun();
+
+  // 註冊
+  registerFun();
+
+  // 登入
+  loginFun();
+
+  // 登出
+  signOutFun();
+}
+
 init();
