@@ -11,9 +11,6 @@ function initData(page) {
     })
     .then(function (result) {
       attractionData = result;
-    })
-    .catch(function (error) {
-      console.error("Error:", error);
     });
 }
 

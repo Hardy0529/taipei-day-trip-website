@@ -148,7 +148,7 @@ function loginResultShow(result) {
     userStatusFun();
   } else if (result.error) {
     login_status.innerHTML = result.message;
-    login_status.setAttribute("class", "register__status");
+    login_status.setAttribute("class", "login__status");
   }
 }
 
