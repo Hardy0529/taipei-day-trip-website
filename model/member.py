@@ -51,9 +51,8 @@ class Register_member_Moel:
         finally:
             con.close()
 
+
 # 會員登入
-
-
 class Login_member_Moel:
     def login_member_con(self, loginEmail, loginPassword):
         try:
