@@ -33,6 +33,8 @@ def orders():
                 cursor = con.cursor(dictionary=True)
                 # 訂購人ID
                 loginID = session["id"]
+                loginName = session["name"]
+                loginEmail = session["email"]
                 # 訂購人
                 contactName = request.json["order"]["contact"]["name"]
                 contactEmail = request.json["order"]["contact"]["email"]
@@ -71,9 +73,9 @@ def orders():
                     cursor.execute(
                         """
                             INSERT INTO
-                            `order`(`number`,`price`,`id`,`name`,`address`,`image`,`date`,`time`,`contactName`,`contactEmail`,`contactPhone`,`status`)
-                            VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-                        """, (orderId, price, iD, name, address, image, date, time, contactName, contactEmail, contactPhone, status))
+                            `order`(`number`,`price`,`id`,`name`,`address`,`image`,`date`,`time`,`contactName`,`contactEmail`,`contactPhone`,`memberID`,`memberName`,`memberEmail`,`status`)
+                            VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                        """, (orderId, price, iD, name, address, image, date, time, contactName, contactEmail, contactPhone, loginID, loginName, loginEmail, status))
                     con.commit()
 
                     post_data = {
