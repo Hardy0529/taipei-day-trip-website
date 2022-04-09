@@ -15,6 +15,7 @@
  * Attraction Thumbnail
  * Attraction
  * Booking
+ * Thankyou
  * Footer
 **/
 
@@ -964,7 +965,7 @@
 .booking__form input[type="tel"] {
   font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   color: #000000;
   width: 200px;
   height: 38px;
@@ -994,7 +995,52 @@
 .booking__form .booking__btn {
   padding-top: 25px;
   text-align: right;
-  padding-bottom: 5px;
+  padding-bottom: 25px;
+}
+
+/*-------------------------*/
+/* $Thankyou Page
+---------------------------*/
+.thankyouPage {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.thankyouPage .thankyouPage__icon {
+  padding-top: 40px;
+  text-align: center;
+}
+.thankyouPage .thankyouPage__icon .icon-check {
+  width: 150px;
+  height: 150px;
+}
+.thankyouPage .thankyouPage__success {
+  font-weight: 400;
+  padding-top: 24px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 28px;
+  color: #666666;
+}
+.thankyouPage .thankyouPage__number {
+  font-weight: 400;
+  padding-top: 40px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 34px;
+  color: #666666;
+}
+.thankyouPage .thankyouPage__number span {
+  font-weight: 700;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.thankyouPage .thankyouPage__home {
+  padding-top: 24px;
+}
+.thankyouPage .thankyouPage__home a.btn:hover,
+.thankyouPage .thankyouPage__home a.btn:active,
+.thankyouPage .thankyouPage__home a.btn:focus {
+  color: #ffffff;
 }
 
 /*-------------------------*/

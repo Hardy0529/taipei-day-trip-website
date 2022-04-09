@@ -17,8 +17,25 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/component.css') }}"
     />
+    <style>
+      .tpfield {
+        background-color: #ffffff;
+        font-family: "Noto Sans TC", "Helvetica", "roboto", arial, sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: #000000;
+        width: 200px;
+        height: 38px;
+        border: 1px solid #e8e8e8;
+        padding: 10px;
+        border-radius: 4px;
+        vertical-align: middle;
+        display: inline-block;
+      }
+  </style>  
+  
   </head>
-  <body>
+  <body >
     <div class="wrapper">
       <!-- Start Login -->
       <div class="popup__login" id="popup_login">
@@ -132,73 +149,7 @@
           <div class="booking__top-section">
             <div class="booking__member">您好，{{username}}，待預訂的行程如下：</div>
             <div id="booking_info-Show">
-              <!-- <div class="booking__info" >
-                <div class="booking__image" id="booking_image">
-                
-                </div>
-                <div class="booking__content">
-                  <div class="booking__content-title">台北一日遊：<span id="booking_content-title"></span> </div>
-                  <div class="booking__content-date">
-                    日期：<span id="booking_content-date"></span>
-                  </div>
-                  <div class="booking__content-time">
-                    時間：<span id="booking_content-time"></span>
-                  </div>
-                  <div class="booking__content-cost">
-                    費用：<span>新台幣 <span id="booking_content-cost"></span> 元</span>
-                  </div>
-                  <div class="booking__content-place">
-                    地點：<span id="booking_content-place"></span>
-                  </div>
-                </div>
-                <div class="booking__delete" >
-                  <span class="booking__Icon-delete" id="booking_delete">
-                    <i class="icon icon-delete"></i>
-                  </span>
-                </div>
-              </div>
-              <form class="booking__form">
-                <div class="booking__middle-section">
-                  <div class="booking__form-title">訂購導覽行程</div>
-    
-                  <div class="booking__form-item">
-                    <label for="booking__form-name"> 聯絡姓名：</label>
-                    <input type="text" name="" id="booking__form-name" />
-                  </div>
-                  <div class="booking__form-item">
-                    <label for="booking__form-email"> 連絡信箱：</label>
-                    <input type="email" name="" id="booking__form-email" />
-                  </div>
-                  <div class="booking__form-item">
-                    <label for="booking__form-phone"> 手機號碼：</label>
-                    <input type="tel" name="" id="booking__form-phone" />
-                  </div>
-                  <div class="booking__form-content">
-                    請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。
-                  </div>
-                </div>
-                <div class="booking__bottom-section">
-                  <div class="booking__form-title">信用卡付款資訊</div>
-    
-                  <div class="booking__form-item">
-                    <label for="booking__form-card"> 卡片號碼：</label>
-                    <input type="text" name="" id="booking__form-card" />
-                  </div>
-                  <div class="booking__form-item">
-                    <label for="booking__form-effective-date"> 過期時間：</label>
-                    <input type="text" name="" id="booking__form-effective-date" />
-                  </div>
-                  <div class="booking__form-item">
-                    <label for="booking__form-verify"> 驗證密碼：</label>
-                    <input type="tel" name="" id="booking__form-verify" />
-                  </div>
-                </div>
-    
-                <div class="booking__price">總價：新台幣 <span id="booking__price_total">2000</span> 元</div>
-                <div class="booking__btn">
-                  <input class="btn" type="button" value="確認訂購並付款" />
-                </div>
-              </form> -->
+        
             </div>
            
           </div>
@@ -207,6 +158,11 @@
       </section>
       <!-- End booking -->
 
+
+
+
+
+
       <!-- Start Footer -->
       <footer class="footer">
         <div class="container">
@@ -214,11 +170,48 @@
         </div>
       </footer>
       <!-- End Footer -->
+
+
+
+
+      <!-- Start Tappay -->
+      <!-- <form class="booking__form">
+       
+          <div class="booking__bottom-section">
+            <div class="booking__form-title">信用卡付款資訊</div>
+            <div class="booking__form-item">
+              <label for="">卡片號碼：</label>
+              <div class="tpfield" id="card-number"></div>
+            </div>
+           
+            <div class="booking__form-item">
+              <label for="">過期時間：</label>
+              <div class="tpfield" id="card-expiration-date"></div>  
+            </div>
+            <div class="booking__form-item">
+              <label for="">驗證密碼：</label>
+              <div class="tpfield" id="card-ccv"></div>
+            </div>
+            <button type="button" class="btn" id="test_btn">確認訂購並付款</button>
+           
+          </div>
+      
+       
+      </form> -->
+      <!-- End Tappay -->
+
+
+
+
       <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
       <script src="{{ url_for('static', filename='js/member.js') }}"></script>
       <script src="{{ url_for('static', filename='js/bookingCheck.js') }}"></script>
+
+      <script src="https://js.tappaysdk.com/tpdirect/v5.9.0"></script>
       <script src="{{ url_for('static', filename='js/bookingApi.js') }}"></script>
+
      
+
     </div>
   </body>
 </html>

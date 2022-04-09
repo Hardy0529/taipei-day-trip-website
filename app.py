@@ -2,6 +2,7 @@ from flask import *
 from route.attraction import attraction
 from route.member import member
 from route.booking import booking
+from route.order import order
 
 app = Flask(__name__)
 # 景點API
@@ -12,6 +13,9 @@ app.register_blueprint(member)
 
 # 預定行程API
 app.register_blueprint(booking)
+
+# 訂單付款API
+app.register_blueprint(order)
 
 # 保持傳遞給 jsonify() 函數的示例搜索的順序
 app.config['JSON_SORT_KEYS'] = False
@@ -37,14 +41,18 @@ def attraction(id):
 def booking():
     if "email" in session:
         name = session["name"]
-        return render_template("booking.html", username = name)
+        return render_template("booking.html", username=name)
     else:
         return render_template("index.html")
 
 
 @app.route("/thankyou")
 def thankyou():
-    return render_template("thankyou.html")
+    if "email" in session:
+        order = request.args.get("number", "")
+        return render_template("thankyou.html", order=order)
+    else:
+        return render_template("index.html")
 
 
 app.run(host="0.0.0.0", port=3000, debug=True)

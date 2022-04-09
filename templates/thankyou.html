@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taipei Trip 台北一日遊|</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/layout.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/component.css') }}"
+    />
+  </head>
+  <body >
+    <div class="wrapper">
+      <!-- Start Login -->
+      <div class="popup__login" id="popup_login">
+        <div class="loginbg">
+          <div class="login__form">
+            <div class="popup__close" id="popup_close-login">
+              <i class="icon icon-close"></i>
+            </div>
+            <div class="login__form-title">登入會員帳號</div>
+            <div class="login__form-item">
+              <input type="email" id="login_Email" placeholder="輸入電子郵件" />
+            </div>
+            <div class="login__form-item">
+              <input
+                type="password"
+                id="login_Password"
+                placeholder="輸入密碼"
+              />
+            </div>
+            <div class="login__form-item">
+              <input class="btn" id="login_Btn" type="button" value="登入帳戶" />
+            </div>
+            <div class="login__form-item">
+              <div class="login__status" id="login_status"></div>
+            </div>
+            <div class="login__form-item">
+              <div class="login__form-hint">
+                還沒有帳戶？ <span id="guide_register-Btn"> 點此註冊</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Login -->
+
+      <!-- Start Register -->
+      <div class="popup__register" id="popup_register">
+        <div class="registerbg">
+          <div class="register__form">
+            <div class="popup__close" id="popup_close-register">
+              <i class="icon icon-close"></i>
+            </div>
+            <div class="register__form-title">註冊會員帳號</div>
+            <div class="register__form-item">
+              <input type="text" id="register_Name" placeholder="輸入姓名" />
+            </div>
+            <div class="register__form-item">
+              <input
+                type="email"
+                id="register_Email"
+                placeholder="輸入電子郵件"
+              />
+            </div>
+            <div class="register__form-item">
+              <input
+                type="password"
+                id="register_Password"
+                placeholder="輸入密碼"
+              />
+            </div>
+            <div class="register__form-item">
+              <input
+                class="btn"
+                id="register_Btn"
+                type="button"
+                value="註冊帳戶"
+              />
+            </div>
+            <div class="register__form-item">
+              <div class="register__status" id="register_status"></div>
+            </div>
+            <div class="register__form-item">
+              <div class="register__form-hint">
+                已經有帳戶了？
+                <span id="guide_login-Btn">點此登入</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Register -->
+
+      <!-- Start header -->
+      <header class="header">
+        <div class="container">
+          <div class="navbar">
+            <div class="navbar__logo">
+              <a href="/">台北一日遊</a>
+            </div>
+            <div class="navbar__nav">
+              <ul class="nav__menu">
+                <li>
+                  <spna id="booking-Check" class="menu__item">預定行程</span >
+                </li>
+                <li>
+                  <span id="login-Popup" class="menu__item"> 登入/註冊 </span>
+                </li>
+                <li>
+                  <span id="signOut-Btn" class="menu__item u-display-hidden"> 登出系統 </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- End header -->
+     
+      <div class="thankyouPage">
+          <div class="container">
+                <div class="thankyouPage__icon">
+                    <i class="icon icon-check"></i>
+                </div>
+              <div class="thankyouPage__success">
+                謝謝您！您的訂單已成立！
+              </div>
+              <div class="thankyouPage__number">
+                訂單號碼： <span> {{order}}</span>  
+              </div>
+              <div class="thankyouPage__home">
+                  <div class="u-text-center">
+                    <a href="/" class="btn">
+                        回到首頁繼續
+                      </a>   
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+
+
+
+      <!-- Start Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p class="copyright">COPYRIGHT © 2021 台北一日遊</p>
+        </div>
+      </footer>
+      <!-- End Footer -->
+
+      <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/member.js') }}"></script>
+     
+      
+
+
+    </div>
+  </body>
+</html>

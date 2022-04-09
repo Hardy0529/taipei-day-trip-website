@@ -600,6 +600,9 @@ ul {
 .icon-next {
   background-image: url("/static/images/icon/btn_rightArrow.png");
 }
+.icon-check {
+  background-image: url("/static/images/icon/icon_check.png");
+}
 
 /*-------------------------*/
 /* $Utility 

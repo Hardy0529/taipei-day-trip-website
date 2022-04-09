@@ -64,4 +64,5 @@ def api_member():
                     return jsonify({"ok": True}), 200
     if request.method == "DELETE":
         session.pop("email", None)
+        session.pop("attractionId", None)
         return jsonify({"ok": True}), 200
