@@ -334,6 +334,7 @@ async function init() {
         })
         .then(function (result) {
           if (result.data.payment.status == 0) {
+            bookingDeleteFun();
             document.location = "/thankyou?number=" + result.data.number;
           } else {
             alert("付款失敗");
