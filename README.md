@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://www.cleverpdf.com/2018864/images.gif">
-   <img src="https://i.imgur.com/UOLYGwX.gif">
+
   <br/>
   Demo: http://35.73.62.186:3000/
 </p>
