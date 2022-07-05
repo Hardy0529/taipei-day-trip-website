@@ -1,9 +1,7 @@
 # taipei-day-trip-website
 
 <p align="center">
-
   <img src="https://i.imgur.com/s6TV9eb.gif">
-
   <br/>
   Demo: http://35.73.62.186:3000/
 </p>
