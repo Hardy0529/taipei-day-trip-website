@@ -40,9 +40,7 @@
 2. 整合 `TapPay SDK` 開發金流系統。
 3. 網站部署到 `AWS EC2`。
 
-### 開發工具
 
-`Prettier` 統一程式碼風格、`GitHub` 做版本控制。
 
 ## Features
 
