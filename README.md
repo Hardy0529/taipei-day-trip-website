@@ -1,7 +1,7 @@
 # taipei-day-trip-website
 
 <p align="center">
-  <img src="https://www.cleverpdf.com/2018864/images.gif">
+  <img src="https://www.cleverpdf.com/2018864/images.gif" width="400px" height="400px" alt="protfolio image">
 
   <br/>
   Demo: http://35.73.62.186:3000/
