@@ -1,20 +1,10 @@
 from flask import *
-import mysql.connector.pooling
+from model.booking import *
+from view.booking import *
 
 booking = Blueprint('booking', __name__,
                     static_folder="static", template_folder="templates")
 app.secret_key = "hello"
-
-dbconfig = {
-    "host": "localhost",
-    "user": "root",
-    "password": "12345678",
-    "database": "taipei-attractions"
-}
-db = mysql.connector.pooling.MySQLConnectionPool(
-    pool_name="taipei-attractions",
-    **dbconfig
-)
 
 
 @booking.route('/api/booking',  methods=["POST", "GET", "PATCH", "DELETE"])
@@ -37,7 +27,6 @@ def api_booking():
                     "name": name,
                     "address": address,
                     "image": "https://"+file
-
                 }
                 return jsonify({"data": {"attraction": bookDataGet, "date": date, "time": time, "price": price}}), 200
             else:
@@ -45,39 +34,14 @@ def api_booking():
         else:
             return jsonify({"erro": True, "message": "未登入系統，拒絕存取"}), 403
     if request.method == "POST":
-
         if "email" in session:
-            try:
-                attractionId = request.json["attractionId"]
-                date = request.json["date"]
-                time = request.json["time"]
-                price = request.json["price"]
+            attractionId = request.json["attractionId"]
+            date = request.json["date"]
+            time = request.json["time"]
+            price = request.json["price"]
 
-                con = db.get_connection()
-                cursor = con.cursor(dictionary=True)
-                cursor.execute(
-                    """
-                    SELECT `stitle`,`address`,`file`
-                    FROM `attractions`
-                    WHERE `_id` = %s
-                """, (attractionId,))
-                bookingCheck = cursor.fetchone()
-                if bookingCheck == None:
-                    return jsonify({"error": True, "message": "建立失敗，輸入不正確或其他原因"}), 400
-                else:
-                    session["attractionId"] = attractionId
-                    session["stitle"] = bookingCheck["stitle"]
-                    session["address"] = bookingCheck["address"]
-                    session["file"] = bookingCheck["file"]
-                    session["date"] = date
-                    session["time"] = time
-                    session["price"] = price
-                    print("Post成功")
-                    return jsonify({"ok": True}), 200
-            except:
-                return jsonify({"error": True, "message": "伺服器內部錯誤"}), 500
-            finally:
-                con.close()
+            booking_data = booking_Moel.api_booking_Moel_con(attractionId)
+            return booking_View.booking_render(booking_data, attractionId, date, time, price)
         else:
             return jsonify({"erro": True, "message": "未登入系統，拒絕存取"}), 403
     if request.method == "DELETE":
